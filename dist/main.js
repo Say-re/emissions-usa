@@ -15,7 +15,7 @@
   \**********************/
 /***/ (() => {
 
-eval("\n\n//# sourceURL=webpack://emissions-usa/./src/index.js?");
+eval("const categorizeStates = async () => {\n  const stateData = await fetch('./state-emissions.json')\n    .then((response) => response.json())\n    .then((data) => data)\n    .catch((error) => {\n      console.log(error);\n      return null;\n    });\n\n  if (!stateData) return null;\n  stateData.forEach((state) => {\n    const id = state.abbreviation;\n    const element = document.getElementsByClassName(id)[0];\n    if (state[2020] > 97) {\n      if (element) {\n        element.setAttribute('class', `${element.classList || ''} category1`);\n      }\n    } else if (state[2020] >= 81) {\n      if (element) {\n        element.setAttribute('class', `${element.classList || ''} category2`);\n      }\n    } else if (state[2020] >= 65) {\n      if (element) {\n        element.setAttribute('class', `${element.classList || ''} category3`);\n      }\n    } else if (state[2020] >= 32) {\n      if (element) {\n        element.setAttribute('class', `${element.classList || ''} category4`);\n      }\n    } else if (state[2020] >= 16) {\n      if (element) {\n        element.setAttribute('class', `${element.classList || ''} category5`);\n      }\n    } else if (element) {\n      element.setAttribute('class', `${element.classList || ''} category6`);\n    }\n  });\n  return null;\n};\n\ncategorizeStates();\n\n\n//# sourceURL=webpack://emissions-usa/./src/index.js?");
 
 /***/ })
 
